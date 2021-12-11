@@ -1,1 +1,79 @@
 @import "normalize.css";
+
+@font-face {
+    font-family: "Roboto";
+    src: url("./fonts/Roboto-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url("./fonts/Roboto-Bold.ttf") format("truetype");
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* ============== HEADER ============== */
+.header {
+    background-color: #635854;
+    padding: 12px 0;
+    border-bottom: 4px solid #3596f5;
+}
+
+.navbar {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+ul.navbar-menu {
+    max-width: 670px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    text-align: center;
+    font-size: 16px;
+    text-align: center;
+}
+
+.navbar-item {
+    margin: 0 40px;
+}
+
+a.navbar-link {
+    color: #fff;
+}
+
+.navbar-contacts {
+    text-align: right;
+}
+
+.navbar-text {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 14px;
+    line-height: 16px;
+    color: #fff;
+}
+
+.navbar-tel {
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 20px;
+    color: #fff;
+}
