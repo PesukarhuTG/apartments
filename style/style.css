@@ -77,3 +77,19 @@ a.navbar-link {
     line-height: 20px;
     color: #fff;
 }
+
+/* ============== MAIN ============== */
+.main {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding-top: 54px;
+}
+
+.home-image path {
+    opacity: 0;
+    cursor: pointer;
+}
+
+.home-image path:hover {
+    opacity: 1;
+}
