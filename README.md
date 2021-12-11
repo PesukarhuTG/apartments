@@ -1,2 +1,2 @@
 # Apartments
-Study project. [Preview link here](https://pesukarhutg.github.io/apartments/)
+A study project. [Preview link here](https://pesukarhutg.github.io/apartments/)

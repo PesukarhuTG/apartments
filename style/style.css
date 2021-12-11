@@ -1,17 +1,10 @@
 @import "normalize.css";
-
-@font-face {
-    font-family: "Roboto";
-    src: url("./fonts/Roboto-Regular.ttf") format("truetype");
-}
-
-@font-face {
-    font-family: "Roboto";
-    src: url("./fonts/Roboto-Bold.ttf") format("truetype");
-}
+@import "fonts.css";
 
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
@@ -22,6 +15,11 @@ body {
 a {
     text-decoration: none;
     cursor: pointer;
+}
+
+button {
+    cursor: pointer;
+    border: none;
 }
 
 /* ============== HEADER ============== */
@@ -46,7 +44,6 @@ ul.navbar-menu {
     display: flex;
     justify-content: space-between;
     list-style: none;
-    text-align: center;
     font-size: 16px;
     text-align: center;
 }
@@ -83,6 +80,7 @@ a.navbar-link {
     max-width: 1280px;
     margin: 0 auto;
     padding-top: 54px;
+    display: flex;
 }
 
 .home-image path {
@@ -92,4 +90,50 @@ a.navbar-link {
 
 .home-image path:hover {
     opacity: 1;
+}
+
+.main-info {
+    padding: 65px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.counter-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.counter-button {
+    background-color: #fff;
+}
+
+.counter-arrow-down {
+    transform: rotateX(180deg);
+}
+
+h2.main-title {
+    font-family: "Bebas-Neue", sans-serif;
+    font-size: 37px;
+    line-height: 37px;
+    font-weight: normal;
+    color: #635854;
+}
+
+span.counter {
+    font-family: "Bebas-Neue", sans-serif;
+    font-size: 124px;
+    color: #635854;
+    margin-bottom: 10px;
+}
+
+.button-primary {
+    background-color: #3596f5;
+    padding: 16px 36px;
+    border-radius: 6px;
+    color: #fff;
 }
