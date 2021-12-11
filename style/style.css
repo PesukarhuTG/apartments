@@ -110,10 +110,15 @@ a.navbar-link {
 
 .counter-button {
     background-color: #fff;
+    height: 30px;
 }
 
-.counter-arrow-down {
-    transform: rotateX(180deg);
+.counter-arrow {
+    transition: all 0.3s ease-in-out;
+}
+
+.counter-arrow:hover {
+    transform: scale(1.6);
 }
 
 h2.main-title {
