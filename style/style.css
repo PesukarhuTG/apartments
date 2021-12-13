@@ -195,8 +195,9 @@ span.counter {
     opacity: 0;
 }
 
-.flats path:hover {
-    opacity: 1;
+.flats path:hover,
+.flat-path-active {
+    opacity: 1 !important;
     cursor: pointer;
 }
 
@@ -228,7 +229,8 @@ span.counter {
     color: #635854;
 }
 
-.flat-link:hover {
+.flat-link:hover,
+.flat-link-active {
     text-decoration-line: underline;
     color: #3596f5;
 }

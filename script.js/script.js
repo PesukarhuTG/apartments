@@ -7,6 +7,11 @@ const modal = document.querySelector('.modal');
 const modalCloseButton = document.querySelector('.modal-close-button');
 const modalCounter = document.querySelector('.modal-counter');
 const buttonViewFlats = document.querySelector('.view-flats');
+const modalFlatsContainer = document.querySelector('.flats');
+const flatImages = modalFlatsContainer.querySelectorAll('path');
+const modalFlatLinksContainer = document.querySelector('.flat-list');
+const flatLinks = modalFlatLinksContainer.querySelectorAll('.flat-link');
+const flatNumbers = modalFlatLinksContainer.querySelectorAll('.flat-number');
 
 let currentFloor = 2;
 let allFloorNumber = floorImages.length; //17
@@ -29,6 +34,18 @@ const hideFloorImg = (num, direction) => {
 function showCurrentData(num = 2) {
     counter.textContent = (currentFloor < 10) ? `0${currentFloor}` : currentFloor;
     floorImages[num - 2].style.opacity = 1; //show an active floor image
+}
+
+function hideAllFlatImgActive() {
+    flatImages.forEach(item => {
+        item.classList.remove('flat-path-active'); //картинки: удаляем выделение у всех
+    })
+}
+
+function hideAllFlatLinkActive() {
+    flatLinks.forEach(item => {
+        item.classList.remove('flat-link-active'); //ссылки удаляем выделение у всех
+    })
 }
 
 // choose the floor by mouse clicking
@@ -70,6 +87,10 @@ floorImages.forEach(item => {
     item.addEventListener('click', e => {
         modal.classList.toggle('is-open');
         modalCounter.textContent = e.target.dataset.floor;
+
+        flatNumbers.forEach(elem => {
+            elem.textContent = e.target.dataset.floor;
+        })
     })
 })
 
@@ -80,7 +101,37 @@ modalCloseButton.addEventListener('click', () => {
 buttonViewFlats.addEventListener('click', () => {
     modalCounter.textContent = currentFloor;
     modal.classList.toggle('is-open');
+})
 
+// choose the flat when we hover over the picture
+modalFlatsContainer.addEventListener('mouseover', e => {
+    hideAllFlatImgActive();
+
+    if (e.target.closest('path')) {
+        hideAllFlatLinkActive();
+        flatLinks[+e.target.dataset.flat - 1].classList.add('flat-link-active');
+    }
+})
+
+modalFlatsContainer.addEventListener('mouseout', () => {
+    hideAllFlatLinkActive();
+})
+
+// choose the flat when we hover over the flat list
+modalFlatLinksContainer.addEventListener('mouseover', e => {
+    hideAllFlatLinkActive();
+
+    if (e.target.closest('a')) {
+        hideAllFlatImgActive();
+
+        if (+e.target.dataset.number) {
+            flatImages[+e.target.dataset.number - 1].classList.add('flat-path-active');
+        }
+    }
+})
+
+modalFlatLinksContainer.addEventListener('mouseout', () => {
+    hideAllFlatImgActive();
 })
 
 showCurrentData();
