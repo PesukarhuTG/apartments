@@ -1,8 +1,12 @@
 const homeImageContainer = document.querySelector('.home-image');
-const floorImages = document.querySelectorAll('path');
+const floorImages = homeImageContainer.querySelectorAll('path');
 const buttonUp = document.querySelector('.counter-up');
 const buttonDown = document.querySelector('.counter-down');
 const counter = document.querySelector('.counter');
+const modal = document.querySelector('.modal');
+const modalCloseButton = document.querySelector('.modal-close-button');
+const modalCounter = document.querySelector('.modal-counter');
+const buttonViewFlats = document.querySelector('.view-flats');
 
 let currentFloor = 2;
 let allFloorNumber = floorImages.length; //17
@@ -59,6 +63,24 @@ buttonDown.addEventListener('click', () => {
         hideFloorImg(currentFloor, 'down'); //hide 2
         showCurrentData(currentFloor); //show 18
     }
+})
+
+//open a modal window
+floorImages.forEach(item => {
+    item.addEventListener('click', e => {
+        modal.classList.toggle('is-open');
+        modalCounter.textContent = e.target.dataset.floor;
+    })
+})
+
+modalCloseButton.addEventListener('click', () => {
+    modal.classList.toggle('is-open');
+})
+
+buttonViewFlats.addEventListener('click', () => {
+    modalCounter.textContent = currentFloor;
+    modal.classList.toggle('is-open');
+
 })
 
 showCurrentData();
